@@ -1,5 +1,6 @@
 import React from 'react';
 import InventoryManager from '../components/InventoryManager';
+import closed from '../assets/closed.png'
 
 const MainScreen = () => {
   return (

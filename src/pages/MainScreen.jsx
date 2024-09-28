@@ -1,5 +1,6 @@
 import React from 'react';
 import InventoryManager from '../components/InventoryManager';
+import closed from '../assets/closed.png'
 
 const MainScreen = () => {
     return (
@@ -9,8 +10,8 @@ const MainScreen = () => {
           </div>
           
           <div className="w-1/2 flex justify-center items-center bg-gray-200">
-            <div className="bg-red-500 w-3/5 h-4/5 flex justify-center items-center">
-              {/* fridge picture*/}
+            <div className="">
+            <img src={closed} alt="cute periwinkle fridge"/>
             </div>
           </div>
         </div>

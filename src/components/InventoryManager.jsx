@@ -57,14 +57,14 @@ const InventoryManager = withAuthInfo((props) => {
     <div>
       <Card className="w-full h-[70vh] mx-auto">
         <CardHeader>
-          <CardTitle>Your Products</CardTitle>
-          <CardDescription>a</CardDescription>
+          <CardTitle>your products</CardTitle>
+          <CardDescription>eat up before things go bad!</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-full">
             {products && (<Input
               type="text"
-              placeholder="Enter product name"
+              placeholder="enter product name"
               value={filter}
               onChange={(e) => {
                 setFilter(e.target.value);
@@ -95,7 +95,7 @@ const InventoryManager = withAuthInfo((props) => {
                 </ul>
               ) : (
                 <div>
-                  <h3 className="text-lg font-semibold">Selected Product Details</h3>
+                  <h3 className="text-lg font-semibold">selected product details</h3>
                   <pre className="whitespace-pre-wrap mt-2">{getFormattedData(selectedProduct)}</pre>
                 </div>
               )}
@@ -105,7 +105,7 @@ const InventoryManager = withAuthInfo((props) => {
         <CardFooter className="flex justify-between">
           {selectedProduct && (
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-              Back to List
+              back to list
             </Button>
           )}
         </CardFooter>

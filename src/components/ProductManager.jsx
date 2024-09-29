@@ -50,7 +50,7 @@ const ProductManager = () => {
           <CardDescription>a</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-[50vh]">
             <Input
               type="text"
               placeholder="Enter product name"
@@ -65,7 +65,7 @@ const ProductManager = () => {
                 );
               }}
             />
-            <div className="mt-4 flex-1 overflow-y-auto max-h-[400px]">
+            <div className="mt-4 flex-1 overflow-y-scroll">
               {!selectedProduct ? (
                 <ul className="space-y-2">
                   {filteredProducts &&

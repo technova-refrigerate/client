@@ -11,13 +11,13 @@ export default defineConfig({
         target: 'https://79676842581.propelauthtest.com',
         changeOrigin: true,
         secure: false,
-        // rewrite: (path) => path.replace(/^\/api\/v1/, '') // Removes /api/v1 prefix
+        // rewrite: (path) => path.replace(/^\/api\/v1/, '')
       },
       '/api': {
         target: "http://localhost:8080",
         changeOrigin: true,
         secure: false,
-        rewrite: path => path.replace('/api', ''),
+        // rewrite: path => path.replace('/api', ''),
         // ws: true,
         //   configure: (proxy, _options) => {
         //     proxy.on('error', (err, _req, _res) => {

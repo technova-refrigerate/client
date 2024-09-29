@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RequiredAuthProvider, RedirectToLogin } from "@propelauth/react";
 //import LoginPage from './login.jsx'
-import MainScreen from './pages/MainScreen.jsx'
+import AddInventory from './pages/AddInventory.jsx'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <main className="bg-gray-300 h-screen w-[screen] flex justify-center items-center">
       <div className='w-[80%]'>
-        <MainScreen />
+        <AddInventory />
       </div>
     </main>
   </StrictMode>

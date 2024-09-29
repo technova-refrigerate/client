@@ -11,7 +11,7 @@ const LandingPage = withAuthInfo((props) => {
       <div className="w-1/2 flex justify-center items-center">
         <div className="transition-opacity duration-1000 ease-out opacity-100 hover:opacity-0 w-4/5 text-5xl font-bold text-midnight">
         <span>welcome to your fridge, {props.user.username}</span>
-        <meta http-equiv="refresh" content="1.5;url=/add" />
+        <meta http-equiv="refresh" content="3;url=/add" />
           {/* <Tabs defaultValue="add" className="w-full">
               <TabsList className="grid w-full grid-cols-2 gap-4">
                 <TabsTrigger value="add">Add</TabsTrigger>

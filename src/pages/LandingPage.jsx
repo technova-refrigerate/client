@@ -16,7 +16,7 @@ const LandingPage = () => {
               <p>a fridge inventory tracker to keep your food out of landfills and your meals as fresh as possible.</p>
             </div>
             <div className="italic underline text-base font-normal">
-              <a href="/statspage" class="text-midnight visited:text-purple ...">food waste research + stats</a>
+              <a href="/statspage" className="text-midnight visited:text-purple ...">food waste research + stats</a>
             </div>
             <div className="py-4">
               <Button onClick={redirectToLoginPage}>get started</Button>

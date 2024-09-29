@@ -11,17 +11,17 @@ const StatsPage = () => {
                 </div>
                 <div className="text-midnight text-right">
                     <h1 className="text-midnight text-right">up to</h1>
-                    <h1 className="pt-2 italic text-4xl font-bold text-teal text-right">10% of global greenhouse gas</h1>
-                    <h1 className="italic text-4xl font-bold text-teal text-right">emissions</h1>
+                    <h1 className="pt-2 italic text-4xl font-bold text-dark-teal text-right">10% of global greenhouse gas</h1>
+                    <h1 className="italic text-4xl font-bold text-dark-teal text-right">emissions</h1>
                     <h1 className="pt-4 text-midnight text-right">almost <span className="font-bold">five times</span> the total emissions of</h1>
                     <h1 className="text-midnight text-right">the aviation sector</h1>
                 </div>
                 <div>
-                    <h1 className="italic pt-8 text-4xl font-bold text-purple">1.005 billion tonnes</h1>
+                    <h1 className="italic pt-8 text-4xl font-bold text-dark-purple">1.005 billion tonnes</h1>
                     <h1 className="pt-4 text-midnight">of food waste generated per year, or 132kg per capita</h1>
                 </div>
                 <div>
-                    <h1 className="italic pt-8 text-4xl font-bold text-pink text-right">$1, 000, 000, 000</h1>
+                    <h1 className="italic pt-8 text-4xl font-bold text-dark-pink text-right">$1, 000, 000, 000</h1>
                     <h1 className="pt-4 text-right">in total cost of food loss and waste for</h1>
                     <h1 className="text-right">the global economy</h1>
                 </div>
@@ -38,7 +38,7 @@ const StatsPage = () => {
                 <div>
                 </div>
                 <div className="text-right">
-                    <a href="/" className="italic underline text-right pt-8 text-midnight visited:text-purple ...">return to your fridge</a>
+                    <a href="/" className="italic underline text-right pt-8 text-midnight visited:text-dark-purple ...">return to your fridge</a>
                 </div>
             </div>
         </div>

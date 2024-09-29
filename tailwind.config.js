@@ -15,6 +15,9 @@ export default {
       		'purple': '#ADB4F9',
       		'teal': '#A8EFE4',
       		'pink': '#F8B3B8',
+			'dark-purple': '#7676e1',
+			'dark-teal': '#79afa6',
+			'dark-pink': '#d76c7a',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

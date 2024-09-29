@@ -12,12 +12,15 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import getFormattedData from "../utils/dataFilter";
 import { withAuthInfo } from '@propelauth/react';
+import { useToast } from "@/hooks/use-toast"
 
 const InventoryManager = withAuthInfo((props) => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [outputdata, setOutputData] = useState("");
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,19 +42,31 @@ const InventoryManager = withAuthInfo((props) => {
     fetchProducts();
   }, []);
 
-  // const handleProductClick = async (id) => {
-  //   try {
-  //     const response = await axios.get(`/api/products/${id}`, {
-  //       headers: {
-  //         Authorization: `Bearer ${props.accessToken}`,
-  //       }
-  //     });
-  //     setSelectedProduct(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching product by ID:", error);
-  //     setSelectedProduct(null);
-  //   }
-  // };
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    console.log("product", product, product.dateStored, product.bestBefore);
+    setOutputData(`Name: ${product.name}\nSubtitle: ${product.subtitle}\nAdded: ${ (product.dateStored instanceof Date) ? product.dateStored.toLocaleDateString() : new Date(product.dateStored).toLocaleDateString() }\nBest Before: ${ (product.bestBefore instanceof Date) ? product.bestBefore.toLocaleDateString() : new Date(product.bestBefore).toLocaleDateString() }`);
+
+  };
+
+  const handleMunch = async (product) => {
+    try {
+      const response = await axios.delete(`/api/products/${product.id}`, {
+        headers: {
+          Authorization: `Bearer ${props.accessToken}`,
+        }
+      });
+      toast({
+        title: `Deleted ${product.name} from inventory`,
+      })
+      setSelectedProduct(null);
+      setFilteredProducts(products.filter((p) => p.id !== product.id));
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+
+  }
 
   return (
     <div>
@@ -86,7 +101,7 @@ const InventoryManager = withAuthInfo((props) => {
                     filteredProducts.map((product) => (
                       <li
                         key={product.id}
-                        onClick={() => handleProductClick(product.id)}
+                        onClick={() => handleProductClick(product)}
                         className="cursor-pointer text-blue-600 border-b border-gray-300 pb-2"
                       >
                         {product.name} {product.subtitle ? `: ${product.subtitle}` : null}
@@ -96,18 +111,21 @@ const InventoryManager = withAuthInfo((props) => {
               ) : (
                 <div>
                   <h3 className="text-lg font-semibold">Selected Product Details</h3>
-                  <pre className="whitespace-pre-wrap mt-2">{getFormattedData(selectedProduct)}</pre>
+                  <pre className="whitespace-pre-wrap mt-2">{outputdata}</pre>
                 </div>
               )}
             </div>
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button>A</Button>
+          
           {selectedProduct && (
+            <>
+            <Button onClick={() => handleMunch(selectedProduct)}>Munch</Button>
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
               Back to List
             </Button>
+            </>
           )}
         </CardFooter>
       </Card>

@@ -76,10 +76,20 @@ const ProductManager = withAuthInfo((props) => {
 
   const addItem = async (product, location) => {
     console.log(props.accessToken)
-    let bestBeforeDate;
+    let bestBeforeDate = new Date(Date.now());
+    let numModifier = 0;
     for (let i = 0; i < originalData.length; i++) {
       if (location === originalData[i].label) {
-        bestBeforeDate = originalData[i].min;
+        numModifier = originalData[i].min;
+        if (originalData[i].metric === "days") {
+          bestBeforeDate.setDate(bestBeforeDate.getDate() + numModifier);
+        }
+        if (originalData[i].metric === "months") {
+          bestBeforeDate.setMonth(bestBeforeDate.getMonth() + numModifier);
+        }
+        if (originalData[i].metric === "years") {
+          bestBeforeDate.setFullYear(bestBeforeDate.getFullYear() + numModifier);
+        }
         break;
       }
     }
@@ -118,9 +128,7 @@ const ProductManager = withAuthInfo((props) => {
     if (storageOptions.has("Fridge")) {
       buttons.push(<Button variant="outline" onClick={() => {
         toast({
-          title: "Uh oh! Something went wrong.",
-          description: "There was a problem with your request.",
-          variant: "success",
+          title: `Added ${selectedProduct.Name} to fridge!`,
         })
         
         addItem(selectedProduct, "Fridge")

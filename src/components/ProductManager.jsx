@@ -111,7 +111,7 @@ const ProductManager = withAuthInfo((props) => {
       buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>Pantry</Button>);
     }
     if (storageOptions.has("Freezer")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>Freezer</Button>);
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>freezer</Button>);
     }
     
     if (storageOptions.has("Fridge")) {
@@ -133,14 +133,14 @@ const ProductManager = withAuthInfo((props) => {
     <div>
       <Card className="w-full h-[70vh] mx-auto">
         <CardHeader>
-          <CardTitle>Product Search</CardTitle>
-          <CardDescription>a</CardDescription>
+          <CardTitle>product search</CardTitle>
+          <CardDescription>add your foods here!</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-[50vh]">
             {!selectedProduct && (<Input
               type="text"
-              placeholder="Enter product name"
+              placeholder="enter product name"
               value={filter}
               onChange={(e) => {
                 setFilter(e.target.value);
@@ -160,7 +160,7 @@ const ProductManager = withAuthInfo((props) => {
                       <li
                         key={product._id}
                         onClick={() => handleProductClick(product._id)}
-                        className="cursor-pointer text-blue-600 border-b border-gray-300 pb-2"
+                        className="cursor-pointer text-dark-purple border-b border-gray-300 pb-2"
                       >
                         {product.Name} {product.Name_subtitle ? `: ${product.Name_subtitle}` : null}
                       </li>
@@ -168,7 +168,7 @@ const ProductManager = withAuthInfo((props) => {
                 </ul>
               ) : (
                 <div>
-                  <h3 className="text-lg font-semibold">Selected Product Details</h3>
+                  <h3 className="text-lg font-semibold">selected product details</h3>
                   <pre className="whitespace-pre-wrap mt-2">{formattedData}</pre>
                 </div>
               )}
@@ -180,7 +180,7 @@ const ProductManager = withAuthInfo((props) => {
             <div>
               <>{renderButtons()}</>
               <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-                Back to List
+                back to list
               </Button>
             </div>
           )}

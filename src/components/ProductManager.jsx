@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { withAuthInfo } from '@propelauth/react';
+import { useToast } from "@/hooks/use-toast"
 
 const ProductManager = withAuthInfo((props) => {
   const [products, setProducts] = useState(null);
@@ -21,6 +22,7 @@ const ProductManager = withAuthInfo((props) => {
   const [formattedData, setFormattedData] = useState("");
   const [storageOptions, setStorageOptions] = useState(new Set());
   const [originalData, setOriginalData] = useState([]);
+  const { toast } = useToast();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -83,9 +85,9 @@ const ProductManager = withAuthInfo((props) => {
 
     const newProduct = {
       id: product._id,
-      icon: product.icon,
+      icon: product.icon ? product.icon : "",
       name: product.Name,
-      subtitle: product.Name_subtitle,
+      subtitle: product.Name_subtitle ? product.Name_subtitle : "",
       bestBefore: bestBeforeDate,
       storageLocation: location,
     };
@@ -97,6 +99,7 @@ const ProductManager = withAuthInfo((props) => {
         },
       });
     } catch (error) {
+      console.log(error);
       console.error("Error adding product:", error);
     }
   }
@@ -104,15 +107,25 @@ const ProductManager = withAuthInfo((props) => {
   const renderButtons = () => {
     // console.log([...storageOptions].join(' '));
     const buttons = [];
-    if (storageOptions.has("Fridge")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Fridge")}>fridge</Button>);
+    if (storageOptions.has("Pantry")) {
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>Pantry</Button>);
     }
     if (storageOptions.has("Freezer")) {
       buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>freezer</Button>);
     }
-    if (storageOptions.has("Pantry")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>pantry</Button>);
+    
+    if (storageOptions.has("Fridge")) {
+      buttons.push(<Button variant="outline" onClick={() => {
+        toast({
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem with your request.",
+          variant: "success",
+        })
+        
+        addItem(selectedProduct, "Fridge")
+      }}>Fridge</Button>);
     }
+    
     return buttons;
   }
 

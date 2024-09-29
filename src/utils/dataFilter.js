@@ -5,8 +5,10 @@ function formatSet(min, max, metric, tips, label) {
     (metric === null || metric === undefined) &&
     (tips === null || tips === undefined)
   ) {
+    // console.log("break");
     return "";
   }
+  // console.log("metric", metric);
 
   let result = `${label}:\n`;
 
@@ -22,11 +24,14 @@ function formatSet(min, max, metric, tips, label) {
     result += `  Tips: ${tips}\n`;
   }
 
-  if (min === null && max === null && tips === null && metric) {
+  if ((min === null || min === undefined) && (max === null || max === undefined) && (tips === null || tips === undefined) && metric) {
     result += `  ${metric}\n`;
   }
 
-  result += "\n"; // Empty line for readability
+  // if (min === null && max === null && tips && metric) {
+  //   result += `  Tips: ${tips}\n`;
+  // }
+  result += "\n";
   return result;
 }
 
@@ -61,7 +66,7 @@ function getFormattedData(item) {
     item.Pantry_Min,
     item.Pantry_Max,
     item.Pantry_Metric,
-    item.Pantry_Tips,
+    item.Pantry_tips,
     "Pantry"
   );
 
@@ -73,7 +78,7 @@ function getFormattedData(item) {
     item.DOP_Pantry_Min,
     item.DOP_Pantry_Max,
     item.DOP_Pantry_Metric,
-    item.DOP_Pantry_Tips,
+    item.DOP_Pantry_tips,
     "Date of Purchaes (Pantry)"
   );
 
@@ -83,14 +88,14 @@ function getFormattedData(item) {
 
   result += formatSet(
     item.Pantry_After_Opening_Min,
-    item.Pantry_After_Opening_Min,
-    item.Pantry_After_Opening_Min,
-    item.Pantry_After_Opening_Min,
+    item.Pantry_After_Opening_Max,
+    item.Pantry_After_Opening_Metric,
+    item.Pantry_After_Opening_tips,
     "Pantry After Opening"
   );
 
-  if (getValidStorage(item.Pantry_After_Thawing_Min, item.Pantry_After_Thawing_Max, item.Pantry_After_Thawing_Metric)) {
-    storageOptions.push({"label": "Pantry", "min": item.Pantry_After_Thawing_Min, "max": item.Pantry_After_Thawing_Max, "metric": item.Pantry_After_Thawing_Metric});
+  if (getValidStorage(item.Refrigerate_Min, item.Refrigerate_Max, item.Refrigerate_Metric)) {
+    storageOptions.push({"label": "Fridge", "min": item.Refrigerate_Min, "max": item.Refrigerate_Max, "metric": item.Refrigerate_Metric});
   }
 
   result += formatSet(
@@ -138,15 +143,15 @@ function getFormattedData(item) {
   );
 
   if (getValidStorage(item.Freeze_Min, item.Freeze_Max, item.Freeze_Metric)) {
-    storageOptions.push({"label": "Freeze", "min": item.Freeze_Min, "max": item.Freeze_Max, "metric": item.Freeze_Metric});
+    storageOptions.push({"label": "Freezer", "min": item.Freeze_Min, "max": item.Freeze_Max, "metric": item.Freeze_Metric});
   }
 
   result += formatSet(
     item.Freeze_Min,
     item.Freeze_Max,
     item.Freeze_Metric,
-    item.Freeze_Tips,
-    "Freeze"
+    item.Freeze_tips,
+    "Freezer"
   );
 
   // // DOP_Freeze

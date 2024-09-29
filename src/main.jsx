@@ -5,6 +5,7 @@ import { AuthProvider, RedirectToLogin } from "@propelauth/react";
 //import LandingPage from './pages/LandingPage.jsx'
 import './index.css'
 import App from './App.jsx'
+import { Toaster } from "@/components/ui/toaster"
 
 createRoot(document.getElementById('root')).render(
   <AuthProvider
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
     <main className="bg-cream h-screen w-[screen] flex justify-center items-center">
       <div className='w-[80%]'>
         <App />
+        <Toaster />
       </div>
     </main>
   </StrictMode>

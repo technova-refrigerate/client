@@ -9,8 +9,8 @@ const LandingPage = withAuthInfo((props) => {
   return (
     <div className="flex h-full w-full">
       <div className="w-1/2 flex justify-center items-center">
-        <div className="w-4/5">
-        <span>Hello {props.user.username}</span>
+        <div className="w-4/5 text-5xl font-bold">
+        <span>welcome to your fridge, {props.user.username}</span>
           {/* <Tabs defaultValue="add" className="w-full">
               <TabsList className="grid w-full grid-cols-2 gap-4">
                 <TabsTrigger value="add">Add</TabsTrigger>

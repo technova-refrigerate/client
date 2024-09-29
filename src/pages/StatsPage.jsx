@@ -6,29 +6,35 @@ const StatsPage = () => {
         <div className="flex h-full w-full">
             <div className="grid grid-cols-2 gap-4 justify-evenly w-full h-full">
                 <div>
-                    <h1 className="text-4xl font-bold text-midnight">did you know...</h1>
-                    <h1 className="text-midnight">nearly a fifth of food produced for human consumption is lost or wasted globally. this amounts to: </h1>
+                    <h1 className="text-5xl font-bold text-midnight">did you know...</h1>
+                    <h1 className="pt-8 w-2/3 text-midnight">nearly a <span className="font-bold">fifth</span> of food produced for human consumption is lost or wasted globally. this amounts to: </h1>
                 </div>
-                <div>
+                <div className="text-midnight text-right">
                     <h1 className="text-midnight text-right">up to</h1>
-                    <h1 className="text-3xl font-bold text-teal text-right">10% of global greenhouse gas emissions</h1>
-                    <h1 className="text-midnight text-right">almost five times the total emissions of the aviation sector</h1>
+                    <h1 className="pt-4 italic text-4xl font-bold text-teal text-right">10% of global</h1>
+                    <h1 className="italic text-4xl font-bold text-teal text-right">greenhouse gas</h1>
+                    <h1 className="italic text-4xl font-bold text-teal text-right">emissions</h1>
+                    <h1 className="pt-4 text-midnight text-right">almost <span className="font-bold">five times</span> the total emissions of</h1>
+                    <h1 className="text-midnight text-right">the aviation sector</h1>
                 </div>
                 <div>
-                    <h1 className="text-3xl font-bold text-purple">1.005 billion tonnes</h1>
-                    <h1 className="text-midnight">of food waste generated per year, or 132kg per capita</h1>
+                    <h1 className="italic pt-8 text-4xl font-bold text-purple">1.005 billion tonnes</h1>
+                    <h1 className="pt-4 text-midnight">of food waste generated per year, or 132kg per capita</h1>
                 </div>
                 <div>
-                    <h1 className="text-3xl font-bold text-pink text-right">$1, 000, 000, 000</h1>
-                    <h1 className="text-right">in total cost of food loss and waste for the global economy</h1>
+                    <h1 className="italic pt-8 text-4xl font-bold text-pink text-right">$1, 000, 000, 000</h1>
+                    <h1 className="pt-4 text-right">in total cost of food loss and waste for</h1>
+                    <h1 className="text-right">the global economy</h1>
                 </div>
                 <div>
-                    <img src={earth} alt="earth" className="object-contain"/>
+                    <img src={earth} alt="earth" className="object-contain h-60 pl-20 pt-6"/>
                 </div>
                 <div>
-                    <h1 className="text-midnight text-right">one of the UN’s 17 sustainable development goals is to halve per capita global food waste by 2030. </h1>
-                    <h1 className="text-midnight text-right">60% of this waste comes from our own homes – and starts in our fridges. </h1>
-                    <h1 className="text-midnight text-right">we all play a part.</h1>
+                <h1 className="pt-12 text-midnight text-right">one of the <span className="font-bold">UN’s 17 sustainable development</span> </h1>
+                <h1 className="text-midnight text-right"> <span className="font-bold">goals</span> is to halve per capita global food waste by 2030. </h1>
+                <h1 className="pt-8 text-midnight text-right">60% of this waste comes from our own homes – and starts in our fridges. </h1>
+                <h1 className="text-midnight text-right">and starts in our fridges. </h1>
+                <h1 className="pt-8 text-midnight text-right">we all play a part.</h1>
                 </div>
             </div>
         </div>

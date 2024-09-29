@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import getFormattedData from "../utils/dataFilter";
 
-const InventoryManager = () => {
+const ProductManager = () => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(null);
@@ -46,7 +46,7 @@ const InventoryManager = () => {
     <div>
       <Card className="w-full h-[70vh] mx-auto">
         <CardHeader>
-          <CardTitle>Your Products</CardTitle>
+          <CardTitle>Product Search</CardTitle>
           <CardDescription>a</CardDescription>
         </CardHeader>
         <CardContent>
@@ -141,4 +141,4 @@ const InventoryManager = () => {
   );
 };
 
-export default InventoryManager;
+export default ProductManager;

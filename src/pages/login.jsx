@@ -1,6 +1,6 @@
 
 import { RequiredAuthProvider, RedirectToLogin } from "@propelauth/react";
-import Login from './components/login'
+import Login from '../components/login'
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(
 //     <RequiredAuthProvider

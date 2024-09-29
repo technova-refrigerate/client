@@ -11,8 +11,12 @@ createRoot(document.getElementById('root')).render(
   //   // displayWhileLoading={<Loading />}
   //   displayIfLoggedOut={<RedirectToLogin />}
   // >
-    <StrictMode>
-      <MainScreen />
-    </StrictMode>
+  <StrictMode>
+    <main className="bg-gray-100 h-screen w-[screen] flex justify-center items-center">
+      <div className='w-[80%]'>
+        <MainScreen />
+      </div>
+    </main>
+  </StrictMode>
   //</RequiredAuthProvider>,
 )

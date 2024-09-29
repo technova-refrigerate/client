@@ -25,7 +25,7 @@ const LandingPage = () => {
 
         </div>
         <div className="w-1/3 justify-center items-center">
-          <a href="/login" target="_blank">
+          <a href="https://79676842581.propelauthtest.com/en/login" onClick={redirectToLoginPage} target="_blank">
             <img src={closed} title="open fridge!" alt="cute periwinkle fridge" />
           </a>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import getFormattedData from "../utils/dataFilter";
 import { Input } from "@/components/ui/input"; import {
   Card,
   CardContent,
@@ -10,18 +11,25 @@ import { Input } from "@/components/ui/input"; import {
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import getFormattedData from "../utils/dataFilter";
+import { withAuthInfo } from '@propelauth/react';
 
-const ProductManager = () => {
+const ProductManager = withAuthInfo((props) => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [formattedData, setFormattedData] = useState("");
+  const [storageOptions, setStorageOptions] = useState(new Set());
+  const [originalData, setOriginalData] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("/api/products/all");
+        const response = await axios.get("/api/products/all", {
+          headers: {
+            Authorization: `Bearer ${props.accessToken}`,
+          }
+        });
         // console.log(response.data);
         setProducts(response.data);
       } catch (error) {
@@ -32,15 +40,81 @@ const ProductManager = () => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    if (selectedProduct) {
+      const data = getFormattedData(selectedProduct);
+      // console.log(data);
+      if (data) {
+        setFormattedData(data.formattedData);
+        const options = new Set();
+        for (let i = 0; i < data.storageOptions.length; i++) {
+          options.add(data.storageOptions[i].label);
+        }
+        setStorageOptions(options);
+        setOriginalData(data.storageOptions);
+      }
+    }
+
+  }, [selectedProduct]);
+
   const handleProductClick = async (id) => {
     try {
-      const response = await axios.get(`/api/products/${id}`);
+      const response = await axios.get(`/api/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${props.accessToken}`,
+        }
+      });
       setSelectedProduct(response.data);
     } catch (error) {
       console.error("Error fetching product by ID:", error);
       setSelectedProduct(null);
     }
   };
+
+  const addItem = async (product, location) => {
+    console.log(props.accessToken)
+    let bestBeforeDate;
+    for (let i = 0; i < originalData.length; i++) {
+      if (location === originalData[i].label) {
+        bestBeforeDate = originalData[i].min;
+        break;
+      }
+    }
+
+    const newProduct = {
+      id: product._id,
+      icon: product.icon,
+      name: product.Name,
+      subtitle: product.Name_subtitle,
+      bestBefore: bestBeforeDate,
+      storageLocation: location,
+    };
+    console.log(newProduct);
+    try {
+      const addedProduct = await axios.post("/api/products", newProduct, {
+        headers: {
+          Authorization: `Bearer ${props.accessToken}`,
+        },
+      });
+    } catch (error) {
+      console.error("Error adding product:", error);
+    }
+  }
+
+  const renderButtons = () => {
+    // console.log([...storageOptions].join(' '));
+    const buttons = [];
+    if (storageOptions.has("Fridge")) {
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Fridge")}>Fridge</Button>);
+    }
+    if (storageOptions.has("Freezer")) {
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>Freezer</Button>);
+    }
+    if (storageOptions.has("Pantry")) {
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>Pantry</Button>);
+    }
+    return buttons;
+  }
 
   return (
     <div>
@@ -51,7 +125,7 @@ const ProductManager = () => {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-[50vh]">
-            <Input
+            {!selectedProduct && (<Input
               type="text"
               placeholder="Enter product name"
               value={filter}
@@ -64,7 +138,7 @@ const ProductManager = () => {
                   )
                 );
               }}
-            />
+            />)}
             <div className="mt-4 flex-1 overflow-y-scroll">
               {!selectedProduct ? (
                 <ul className="space-y-2">
@@ -82,7 +156,7 @@ const ProductManager = () => {
               ) : (
                 <div>
                   <h3 className="text-lg font-semibold">Selected Product Details</h3>
-                  <pre className="whitespace-pre-wrap mt-2">{getFormattedData(selectedProduct)}</pre>
+                  <pre className="whitespace-pre-wrap mt-2">{formattedData}</pre>
                 </div>
               )}
             </div>
@@ -90,9 +164,12 @@ const ProductManager = () => {
         </CardContent>
         <CardFooter className="flex justify-between">
           {selectedProduct && (
-            <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-              Back to List
-            </Button>
+            <div>
+              <>{renderButtons()}</>
+              <Button variant="outline" onClick={() => setSelectedProduct(null)}>
+                Back to List
+              </Button>
+            </div>
           )}
         </CardFooter>
       </Card>
@@ -139,6 +216,6 @@ const ProductManager = () => {
       </div> */}
     </div>
   );
-};
+});
 
 export default ProductManager;

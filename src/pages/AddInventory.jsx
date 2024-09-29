@@ -23,7 +23,7 @@ const AddInventory = withAuthInfo((props) => {
                 <ProductManager />
               </TabsContent>
               <TabsContent value="inventory">
-                <InventoryManager />
+                <InventoryManager props={props} />
               </TabsContent>
             </Tabs>
           </div>

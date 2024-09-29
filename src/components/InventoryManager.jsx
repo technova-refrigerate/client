@@ -11,8 +11,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import getFormattedData from "../utils/dataFilter";
+import { withAuthInfo } from '@propelauth/react';
 
-const InventoryManager = () => {
+const InventoryManager = withAuthInfo((props) => {
   const [products, setProducts] = useState(null);
   const [filter, setFilter] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(null);
@@ -21,9 +22,14 @@ const InventoryManager = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("/api/products/");
+        const response = await axios.get("/api/products/", {
+          headers: {
+            Authorization: `Bearer ${props.accessToken}`,
+          }
+        });
         // console.log(response.data);
         setProducts(response.data);
+        console.log("products", response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -32,15 +38,23 @@ const InventoryManager = () => {
     fetchProducts();
   }, []);
 
-  const handleProductClick = async (id) => {
-    try {
-      const response = await axios.get(`/api/products/${id}`);
-      setSelectedProduct(response.data);
-    } catch (error) {
-      console.error("Error fetching product by ID:", error);
-      setSelectedProduct(null);
-    }
-  };
+  // const handleProductClick = async (id) => {
+  //   try {
+  //     const response = await axios.get(`/api/products/${id}`, {
+  //       headers: {
+  //         Authorization: `Bearer ${props.accessToken}`,
+  //       }
+  //     });
+  //     setSelectedProduct(response.data);
+  //   } catch (error) {
+  //     console.error("Error fetching product by ID:", error);
+  //     setSelectedProduct(null);
+  //   }
+  // };
+
+  useEffect(() => {
+    console.log("filter", filteredProducts);
+  }, [filteredProducts]);
 
   return (
     <div>
@@ -51,7 +65,7 @@ const InventoryManager = () => {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-full">
-            <Input
+            {products && (<Input
               type="text"
               placeholder="Enter product name"
               value={filter}
@@ -59,23 +73,24 @@ const InventoryManager = () => {
                 setFilter(e.target.value);
                 // console.log(e.target.value);
                 setFilteredProducts(
-                  products.filter((product) =>
-                    product.Name.toLowerCase().includes(e.target.value.toLowerCase())
+                  products.filter((product) => {
+                    return product.name.toLowerCase().includes(e.target.value.toLowerCase())
+                  }
                   )
                 );
               }}
-            />
+            />)}
             <div className="mt-4 flex-1 overflow-y-auto max-h-[400px]">
               {!selectedProduct ? (
                 <ul className="space-y-2">
                   {filteredProducts &&
                     filteredProducts.map((product) => (
                       <li
-                        key={product._id}
-                        onClick={() => handleProductClick(product._id)}
+                        key={product.id}
+                        onClick={() => handleProductClick(product.id)}
                         className="cursor-pointer text-blue-600 border-b border-gray-300 pb-2"
                       >
-                        {product.Name} {product.Name_subtitle ? `: ${product.Name_subtitle}` : null}
+                        {product.name} {product.subtitle ? `: ${product.subtitle}` : null}
                       </li>
                     ))}
                 </ul>
@@ -89,6 +104,7 @@ const InventoryManager = () => {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
+          <Button>A</Button>
           {selectedProduct && (
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
               Back to List
@@ -139,6 +155,6 @@ const InventoryManager = () => {
       </div> */}
     </div>
   );
-};
+});
 
 export default InventoryManager;

@@ -16,16 +16,20 @@ const LandingPage = () => {
               <p>a fridge inventory tracker to keep your food out of landfills and your meals as fresh as possible.</p>
             </div>
             <div className="italic underline text-base font-normal">
-              <a href="/statspage" className="text-midnight visited:text-purple ...">food waste research + stats</a>
+              <a href="/statspage" className="text-midnight visited:text-dark-purple ...">food waste research + stats</a>
             </div>
             <div className="py-4">
-              <Button onClick={redirectToLoginPage}>get started</Button>
+              <Button onClick={redirectToLoginPage}>get started (or click on the fridge!)</Button>
             </div>
           </div>
 
         </div>
-        <div className="w-1/2 flex justify-center items-center">
-          <img src={closed} alt="cute periwinkle fridge" className="w-3/5" />
+        <div className="w-1/3 justify-center items-center">
+          <a href="/login" target="_blank">
+            open fridge!
+
+            <img src={closed} alt="cute periwinkle fridge" />
+          </a>
         </div>
     </div>
   )

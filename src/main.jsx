@@ -4,19 +4,20 @@ import { RequiredAuthProvider, RedirectToLogin } from "@propelauth/react";
 //import LoginPage from './login.jsx'
 import MainScreen from './pages/MainScreen.jsx'
 import './index.css'
+import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  // <RequiredAuthProvider
-  //   authUrl={import.meta.env.VITE_AUTH_URL}
-  //   // displayWhileLoading={<Loading />}
-  //   displayIfLoggedOut={<RedirectToLogin />}
-  // >
+  <RequiredAuthProvider
+    authUrl={import.meta.env.VITE_AUTH_URL}
+    // displayWhileLoading={<Loading />}
+    displayIfLoggedOut={<RedirectToLogin />}
+  >
   <StrictMode>
     <main className="bg-gray-300 h-screen w-[screen] flex justify-center items-center">
       <div className='w-[80%]'>
-        <MainScreen />
+        <App />
       </div>
     </main>
   </StrictMode>
-  //</RequiredAuthProvider>,
+  </RequiredAuthProvider>,
 )

@@ -103,7 +103,6 @@ const InventoryManager = withAuthInfo((props) => {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button>A</Button>
           {selectedProduct && (
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
               Back to List

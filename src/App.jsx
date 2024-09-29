@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import MainScreen from './pages/MainScreen';
-import LandingPage from './pages/LandingPage';
+import LandingPage from './pages/PropelLogin';
 import AddInventory from './pages/AddInventory';
 
 const App = () => {

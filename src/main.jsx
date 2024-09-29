@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RequiredAuthProvider, RedirectToLogin } from "@propelauth/react";
-//import LoginPage from './login.jsx'
-import AddInventory from './pages/AddInventory.jsx'
+import LoginPage from './login.jsx'
+//import LandingPage from './pages/LandingPage.jsx'
 import './index.css'
 import App from './App.jsx'
 

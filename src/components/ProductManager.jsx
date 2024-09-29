@@ -147,7 +147,7 @@ const ProductManager = withAuthInfo((props) => {
                       <li
                         key={product._id}
                         onClick={() => handleProductClick(product._id)}
-                        className="cursor-pointer text-blue-600 border-b border-gray-300 pb-2"
+                        className="cursor-pointer text-dark-purple border-b border-gray-300 pb-2"
                       >
                         {product.Name} {product.Name_subtitle ? `: ${product.Name_subtitle}` : null}
                       </li>

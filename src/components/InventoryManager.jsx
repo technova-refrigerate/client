@@ -88,7 +88,7 @@ const InventoryManager = withAuthInfo((props) => {
                       <li
                         key={product.id}
                         onClick={() => handleProductClick(product.id)}
-                        className="cursor-pointer text-blue-600 border-b border-gray-300 pb-2"
+                        className="cursor-pointer text-dark-purple border-b border-gray-300 pb-2"
                       >
                         {product.name} {product.subtitle ? `: ${product.subtitle}` : null}
                       </li>

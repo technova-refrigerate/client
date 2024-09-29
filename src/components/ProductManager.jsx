@@ -108,7 +108,7 @@ const ProductManager = withAuthInfo((props) => {
     // console.log([...storageOptions].join(' '));
     const buttons = [];
     if (storageOptions.has("Pantry")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>Pantry</Button>);
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>pantry</Button>);
     }
     if (storageOptions.has("Freezer")) {
       buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>freezer</Button>);
@@ -123,7 +123,7 @@ const ProductManager = withAuthInfo((props) => {
         })
         
         addItem(selectedProduct, "Fridge")
-      }}>Fridge</Button>);
+      }}>fridge</Button>);
     }
     
     return buttons;

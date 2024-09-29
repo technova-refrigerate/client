@@ -120,8 +120,8 @@ const ProductManager = withAuthInfo((props) => {
     <div>
       <Card className="w-full h-[70vh] mx-auto">
         <CardHeader>
-          <CardTitle>Product Search</CardTitle>
-          <CardDescription>a</CardDescription>
+          <CardTitle>product search</CardTitle>
+          <CardDescription>add your foods here!</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-[50vh]">
@@ -155,7 +155,7 @@ const ProductManager = withAuthInfo((props) => {
                 </ul>
               ) : (
                 <div>
-                  <h3 className="text-lg font-semibold">Selected Product Details</h3>
+                  <h3 className="text-lg font-semibold">selected product details</h3>
                   <pre className="whitespace-pre-wrap mt-2">{formattedData}</pre>
                 </div>
               )}
@@ -167,7 +167,7 @@ const ProductManager = withAuthInfo((props) => {
             <div>
               <>{renderButtons()}</>
               <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-                Back to List
+                back to list
               </Button>
             </div>
           )}

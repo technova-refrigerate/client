@@ -60,8 +60,8 @@ const InventoryManager = withAuthInfo((props) => {
     <div>
       <Card className="w-full h-[70vh] mx-auto">
         <CardHeader>
-          <CardTitle>Your Products</CardTitle>
-          <CardDescription>a</CardDescription>
+          <CardTitle>your products</CardTitle>
+          <CardDescription>eat up before things go bad!</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-full">
@@ -96,7 +96,7 @@ const InventoryManager = withAuthInfo((props) => {
                 </ul>
               ) : (
                 <div>
-                  <h3 className="text-lg font-semibold">Selected Product Details</h3>
+                  <h3 className="text-lg font-semibold">selected product details</h3>
                   <pre className="whitespace-pre-wrap mt-2">{getFormattedData(selectedProduct)}</pre>
                 </div>
               )}
@@ -104,10 +104,9 @@ const InventoryManager = withAuthInfo((props) => {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button>A</Button>
           {selectedProduct && (
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-              Back to List
+              back to list
             </Button>
           )}
         </CardFooter>

@@ -38,12 +38,12 @@ const AddInventory = withAuthInfo((props) => {
   } else {
     return (
       <div>
-        <p>You are not logged in</p>
+        <p>you are not logged in!</p>
         {/* <button onClick={() => redirectToAccountPage()}>Account</button> */}
         {/* <p>You are logged in as {props.user.email}</p> */}
         {/* <button onClick={() => logoutFunction(true)}>Logout</button> */}
-        <button onClick={() => redirectToLoginPage()}>Login</button>
-        <button onClick={() => redirectToSignupPage()}>Signup</button>
+        <button onClick={() => redirectToLoginPage()}>login</button>
+        <button onClick={() => redirectToSignupPage()}>signup</button>
       </div>
     )
   }

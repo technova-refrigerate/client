@@ -1,10 +1,10 @@
 import React from 'react';
 import InventoryManager from '../components/InventoryManager';
 import ProductManager from '../components/ProductManager';
-import closed from '../assets/closed.png'
+import open from '../assets/open.png'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-const MainScreen = () => {
+const AddInventory = () => {
   return (
     <div className="flex h-full w-full">
       <div className="w-1/2 flex justify-center items-center">
@@ -26,10 +26,10 @@ const MainScreen = () => {
       </div>
 
       <div className="w-1/2 flex justify-center items-center">
-        <img src={closed} alt="cute periwinkle fridge" className="w-3/5" />
+        <img src={open} alt="cute periwinkle fridge" className="w-3/5" />
       </div>
     </div>
   );
 }
 
-export default MainScreen;
+export default AddInventory;

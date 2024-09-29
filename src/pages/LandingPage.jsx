@@ -9,11 +9,18 @@ const LandingPage = () => {
     <div className="flex h-full w-full">
         <div className="w-1/2 flex justify-center items-center">
           <div className="w-4/5 text-5xl font-bold text-midnight">
-          <h1>Best BeFridged</h1>
-            <div className="py-8 w-4/5 text-base font-normal">
-              <p>A fridge inventory tracker to keep your food out of landfills and your meals as fresh as possible. </p>
+            <div className="text-5xl font-bold text-midnight">
+              <p>refrigerATE</p>
             </div>
-          <Button onClick={redirectToLoginPage}>Get Started</Button>
+            <div className="py-8 text-base font-normal">
+              <p>a fridge inventory tracker to keep your food out of landfills and your meals as fresh as possible.</p>
+            </div>
+            <div className="italic underline text-base font-normal">
+              <a href="/statspage" class="text-midnight visited:text-purple ...">food waste research + stats</a>
+            </div>
+            <div className="py-4">
+              <Button onClick={redirectToLoginPage}>get started</Button>
+            </div>
           </div>
 
         </div>

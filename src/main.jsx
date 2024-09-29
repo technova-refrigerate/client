@@ -1,16 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { RequiredAuthProvider, RedirectToLogin } from "@propelauth/react";
-import LoginPage from './login.jsx'
+import { AuthProvider, RedirectToLogin } from "@propelauth/react";
+// import LoginPage from './login.jsx'
 //import LandingPage from './pages/LandingPage.jsx'
 import './index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <RequiredAuthProvider
+  <AuthProvider
     authUrl={import.meta.env.VITE_AUTH_URL}
     // displayWhileLoading={<Loading />}
-    displayIfLoggedOut={<RedirectToLogin />}
+    // displayIfLoggedOut={<RedirectToLogin />}
   >
   <StrictMode>
     <main className="bg-gray-300 h-screen w-[screen] flex justify-center items-center">
@@ -19,5 +19,5 @@ createRoot(document.getElementById('root')).render(
       </div>
     </main>
   </StrictMode>
-  </RequiredAuthProvider>,
+  </AuthProvider>,
 )

@@ -110,7 +110,7 @@ const InventoryManager = withAuthInfo((props) => {
                 </ul>
               ) : (
                 <div>
-                  <h3 className="text-lg font-semibold">Selected Product Details</h3>
+                  <h3 className="text-lg font-semibold">selected product details</h3>
                   <pre className="whitespace-pre-wrap mt-2">{outputdata}</pre>
                 </div>
               )}
@@ -121,7 +121,7 @@ const InventoryManager = withAuthInfo((props) => {
           
           {selectedProduct && (
             <>
-            <Button onClick={() => handleMunch(selectedProduct)}>Munch</Button>
+            <Button onClick={() => handleMunch(selectedProduct)}>munch</Button>
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
               back to list
             </Button>

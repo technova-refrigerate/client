@@ -75,19 +75,20 @@ const ProductManager = withAuthInfo((props) => {
   };
 
   const addItem = async (product, location) => {
-    console.log(props.accessToken)
     let bestBeforeDate = new Date(Date.now());
     let numModifier = 0;
     for (let i = 0; i < originalData.length; i++) {
       if (location === originalData[i].label) {
         numModifier = originalData[i].min;
-        if (originalData[i].metric === "days") {
+        // console.log("modifier", numModifier);
+        // console.log("metric", originalData[i].metric);
+        if (originalData[i].metric === "Days") {
           bestBeforeDate.setDate(bestBeforeDate.getDate() + numModifier);
         }
-        if (originalData[i].metric === "months") {
+        if (originalData[i].metric === "Months") {
           bestBeforeDate.setMonth(bestBeforeDate.getMonth() + numModifier);
         }
-        if (originalData[i].metric === "years") {
+        if (originalData[i].metric === "Years") {
           bestBeforeDate.setFullYear(bestBeforeDate.getFullYear() + numModifier);
         }
         break;
@@ -102,7 +103,7 @@ const ProductManager = withAuthInfo((props) => {
       bestBefore: bestBeforeDate,
       storageLocation: location,
     };
-    console.log(newProduct);
+    // console.log(newProduct);
     try {
       const addedProduct = await axios.post("/api/products", newProduct, {
         headers: {

@@ -45,7 +45,7 @@ const InventoryManager = withAuthInfo((props) => {
   const handleProductClick = (product) => {
     setSelectedProduct(product);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    console.log("product", product, product.dateStored, product.bestBefore);
+    // console.log("product", product, product.dateStored, product.bestBefore);
     setOutputData(`Name: ${product.name}\nSubtitle: ${product.subtitle}\nAdded: ${ (product.dateStored instanceof Date) ? product.dateStored.toLocaleDateString() : new Date(product.dateStored).toLocaleDateString() }\nBest Before: ${ (product.bestBefore instanceof Date) ? product.bestBefore.toLocaleDateString() : new Date(product.bestBefore).toLocaleDateString() }`);
 
   };

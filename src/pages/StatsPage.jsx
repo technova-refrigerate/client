@@ -11,8 +11,7 @@ const StatsPage = () => {
                 </div>
                 <div className="text-midnight text-right">
                     <h1 className="text-midnight text-right">up to</h1>
-                    <h1 className="pt-2 italic text-4xl font-bold text-teal text-right">10% of global</h1>
-                    <h1 className="italic text-4xl font-bold text-teal text-right">greenhouse gas</h1>
+                    <h1 className="pt-2 italic text-4xl font-bold text-teal text-right">10% of global greenhouse gas</h1>
                     <h1 className="italic text-4xl font-bold text-teal text-right">emissions</h1>
                     <h1 className="pt-4 text-midnight text-right">almost <span className="font-bold">five times</span> the total emissions of</h1>
                     <h1 className="text-midnight text-right">the aviation sector</h1>

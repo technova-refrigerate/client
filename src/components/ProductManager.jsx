@@ -105,13 +105,13 @@ const ProductManager = withAuthInfo((props) => {
     // console.log([...storageOptions].join(' '));
     const buttons = [];
     if (storageOptions.has("Fridge")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Fridge")}>Fridge</Button>);
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Fridge")}>fridge</Button>);
     }
     if (storageOptions.has("Freezer")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>Freezer</Button>);
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Freezer")}>freezer</Button>);
     }
     if (storageOptions.has("Pantry")) {
-      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>Pantry</Button>);
+      buttons.push(<Button variant="outline" onClick={() => addItem(selectedProduct, "Pantry")}>pantry</Button>);
     }
     return buttons;
   }

@@ -34,6 +34,7 @@ const ProductManager = withAuthInfo((props) => {
         });
         // console.log(response.data);
         setProducts(response.data);
+        setFilteredProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

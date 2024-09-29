@@ -29,7 +29,8 @@ const InventoryManager = withAuthInfo((props) => {
         });
         // console.log(response.data);
         setProducts(response.data);
-        console.log("products", response.data);
+        // console.log("products", response.data);
+        setFilteredProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -52,28 +53,26 @@ const InventoryManager = withAuthInfo((props) => {
   //   }
   // };
 
-  useEffect(() => {
-    console.log("filter", filteredProducts);
-  }, [filteredProducts]);
-
   return (
     <div>
       <Card className="w-full h-[70vh] mx-auto">
         <CardHeader>
-          <CardTitle>your products</CardTitle>
-          <CardDescription>eat up before things go bad!</CardDescription>
+          <CardTitle>Your Products</CardTitle>
+          <CardDescription>a</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col h-full">
             {products && (<Input
               type="text"
-              placeholder="enter product name"
+              placeholder="Enter product name"
               value={filter}
               onChange={(e) => {
                 setFilter(e.target.value);
                 // console.log(e.target.value);
                 setFilteredProducts(
                   products.filter((product) => {
+                    // console.log("product", product.name);
+                    // console.log("target", e.target.value);
                     return product.name.toLowerCase().includes(e.target.value.toLowerCase())
                   }
                   )
@@ -88,7 +87,7 @@ const InventoryManager = withAuthInfo((props) => {
                       <li
                         key={product.id}
                         onClick={() => handleProductClick(product.id)}
-                        className="cursor-pointer text-dark-purple border-b border-gray-300 pb-2"
+                        className="cursor-pointer text-blue-600 border-b border-gray-300 pb-2"
                       >
                         {product.name} {product.subtitle ? `: ${product.subtitle}` : null}
                       </li>
@@ -96,7 +95,7 @@ const InventoryManager = withAuthInfo((props) => {
                 </ul>
               ) : (
                 <div>
-                  <h3 className="text-lg font-semibold">selected product details</h3>
+                  <h3 className="text-lg font-semibold">Selected Product Details</h3>
                   <pre className="whitespace-pre-wrap mt-2">{getFormattedData(selectedProduct)}</pre>
                 </div>
               )}
@@ -104,9 +103,10 @@ const InventoryManager = withAuthInfo((props) => {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
+          <Button>A</Button>
           {selectedProduct && (
             <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-              back to list
+              Back to List
             </Button>
           )}
         </CardFooter>

@@ -11,9 +11,9 @@ const LandingPage = () => {
           <div className="w-4/5 text-5xl font-bold text-midnight">
           <h1>Best BeFridged</h1>
             <div className="py-8 w-4/5 text-base font-normal">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate lectus at tincidunt vulputate. Vivamus non mattis mauris. Nam ante sem, tincidunt eu sodales nec, vestibulum et est. Praesent aliquet at neque non tempus. Morbi sed ipsum venenatis, commodo turpis laoreet, semper mi. </p>
+              <p>A fridge inventory tracker to keep your food out of landfills and your meals as fresh as possible. </p>
             </div>
-          <Button onClick={redirectToLoginPage}>open</Button>
+          <Button onClick={redirectToLoginPage}>Get Started</Button>
           </div>
 
         </div>

@@ -36,9 +36,11 @@ const StatsPage = () => {
                     <h1 className="text-midnight text-right">and starts in our fridges. </h1>
                     <h1 className="pt-8 text-midnight text-right">we all play a part.</h1>
                 </div>
-            </div>
-            <div>
-                <a href="/" className="italic underline text-right pt-8 text-midnight visited:text-purple ...">return to your fridge</a>
+                <div>
+                </div>
+                <div className="text-right">
+                    <a href="/" className="italic underline text-right pt-8 text-midnight visited:text-purple ...">return to your fridge</a>
+                </div>
             </div>
         </div>
         

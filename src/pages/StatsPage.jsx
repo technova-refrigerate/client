@@ -3,7 +3,7 @@ import earth from '../assets/earth.png'
 
 const StatsPage = () => {
     return (
-        <div className="flex h-full w-full">
+        <div className="bg-midnight flex h-screen w-screen">
             <div className="grid grid-cols-2 gap-4 justify-evenly w-full h-full">
                 <div>
                     <h1 className="text-5xl font-bold text-midnight">did you know...</h1>

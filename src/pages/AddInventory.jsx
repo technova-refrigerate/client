@@ -56,8 +56,8 @@ const AddInventory = withAuthInfo((props) => {
           {/*<img src={garlic_aura} alt="garlic" className="absolute h-16 mb-52 mr-16" />*/}
           <img src={nana} alt="bananas" className="absolute h-14 mb-56 ml-10" />
           {/*<img src={nana_aura} alt="bananas" className="absolute h-20 mb-56 ml-10" />*/}
-          <img src={pow} alt="powdered milk" className="absolute h-20 mb-12 ml-16" />
-          {/*<img src={pow_aura} alt="powdered milk" className="absolute h-20 mb-12 ml-16" />*/}
+          {/*<img src={pow} alt="powdered milk" className="absolute h-20 mb-12 ml-16" />
+          <img src={pow_aura} alt="powdered milk" className="absolute h-20 mb-12 ml-16" />*/}
           <img src={steak} alt="avocado" className="absolute h-12 mt-28 ml-20" />
           {/*<img src={steak_aura} alt="avocado" className="absolute h-14 mt-28 ml-20" />*/}
         </div>

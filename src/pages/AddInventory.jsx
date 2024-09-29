@@ -30,8 +30,8 @@ const AddInventory = withAuthInfo((props) => {
           <div className="w-4/5">
             <Tabs defaultValue="add" className="w-full">
               <TabsList className="grid w-full grid-cols-2 gap-4">
-                <TabsTrigger value="add">Add</TabsTrigger>
-                <TabsTrigger value="inventory">Inventory</TabsTrigger>
+                <TabsTrigger value="add">add</TabsTrigger>
+                <TabsTrigger value="inventory">inventory</TabsTrigger>
               </TabsList>
               <TabsContent value="add">
                 <ProductManager />

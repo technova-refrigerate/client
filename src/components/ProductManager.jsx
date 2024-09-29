@@ -127,7 +127,7 @@ const ProductManager = withAuthInfo((props) => {
           <div className="flex flex-col h-[50vh]">
             {!selectedProduct && (<Input
               type="text"
-              placeholder="Enter product name"
+              placeholder="enter product name"
               value={filter}
               onChange={(e) => {
                 setFilter(e.target.value);

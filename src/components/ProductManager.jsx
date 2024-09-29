@@ -75,11 +75,22 @@ const ProductManager = withAuthInfo((props) => {
   };
 
   const addItem = async (product, location) => {
-    console.log(props.accessToken)
-    let bestBeforeDate;
+    let bestBeforeDate = new Date(Date.now());
+    let numModifier = 0;
     for (let i = 0; i < originalData.length; i++) {
       if (location === originalData[i].label) {
-        bestBeforeDate = originalData[i].min;
+        numModifier = originalData[i].min;
+        // console.log("modifier", numModifier);
+        // console.log("metric", originalData[i].metric);
+        if (originalData[i].metric === "Days") {
+          bestBeforeDate.setDate(bestBeforeDate.getDate() + numModifier);
+        }
+        if (originalData[i].metric === "Months") {
+          bestBeforeDate.setMonth(bestBeforeDate.getMonth() + numModifier);
+        }
+        if (originalData[i].metric === "Years") {
+          bestBeforeDate.setFullYear(bestBeforeDate.getFullYear() + numModifier);
+        }
         break;
       }
     }
@@ -92,7 +103,7 @@ const ProductManager = withAuthInfo((props) => {
       bestBefore: bestBeforeDate,
       storageLocation: location,
     };
-    console.log(newProduct);
+    // console.log(newProduct);
     try {
       const addedProduct = await axios.post("/api/products", newProduct, {
         headers: {
@@ -118,9 +129,7 @@ const ProductManager = withAuthInfo((props) => {
     if (storageOptions.has("Fridge")) {
       buttons.push(<Button variant="outline" onClick={() => {
         toast({
-          title: "Uh oh! Something went wrong.",
-          description: "There was a problem with your request.",
-          variant: "success",
+          title: `Added ${selectedProduct.Name} to fridge!`,
         })
         
         addItem(selectedProduct, "Fridge")

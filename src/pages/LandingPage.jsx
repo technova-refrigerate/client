@@ -26,9 +26,7 @@ const LandingPage = () => {
         </div>
         <div className="w-1/3 justify-center items-center">
           <a href="/login" target="_blank">
-            open fridge!
-
-            <img src={closed} alt="cute periwinkle fridge" />
+            <img src={closed} title="open fridge!" alt="cute periwinkle fridge" />
           </a>
         </div>
     </div>

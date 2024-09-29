@@ -11,8 +11,8 @@ const StatsPage = () => {
                 </div>
                 <div className="text-midnight text-right">
                     <h1 className="text-midnight text-right">up to</h1>
-                    <h1 className="pt-2 italic text-4xl font-bold text-dark-teal text-right">10% of global greenhouse gas</h1>
-                    <h1 className="italic text-4xl font-bold text-dark-teal text-right">emissions</h1>
+                    <h1 className="pt-2 italic text-4xl font-bold text-dark-teal text-right">10% of global greenhouse</h1>
+                    <h1 className="italic text-4xl font-bold text-dark-teal text-right">gas emissions</h1>
                     <h1 className="pt-4 text-midnight text-right">almost <span className="font-bold">five times</span> the total emissions of</h1>
                     <h1 className="text-midnight text-right">the aviation sector</h1>
                 </div>
@@ -31,7 +31,7 @@ const StatsPage = () => {
                 <div>
                     <h1 className="pt-10 text-midnight text-right">one of the <span className="font-bold">UN’s 17 sustainable development</span> </h1>
                     <h1 className="text-midnight text-right"> <span className="font-bold">goals</span> is to halve per capita global food waste by 2030. </h1>
-                    <h1 className="pt-8 text-midnight text-right">60% of this waste comes from our own homes – and starts in our fridges. </h1>
+                    <h1 className="pt-8 text-midnight text-right">60% of this waste comes from our own homes –</h1>
                     <h1 className="text-midnight text-right">and starts in our fridges. </h1>
                     <h1 className="pt-8 text-midnight text-right">we all play a part.</h1>
                 </div>

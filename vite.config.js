@@ -7,11 +7,17 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+      '/api/v1': {
+        target: 'https://79676842581.propelauthtest.com',
+        changeOrigin: true,
+        secure: false,
+        // rewrite: (path) => path.replace(/^\/api\/v1/, '')
+      },
       '/api': {
         target: "http://localhost:8080",
         changeOrigin: true,
         secure: false,
-        rewrite: path => path.replace('/api', ''),
+        // rewrite: path => path.replace('/api', ''),
         // ws: true,
         //   configure: (proxy, _options) => {
         //     proxy.on('error', (err, _req, _res) => {

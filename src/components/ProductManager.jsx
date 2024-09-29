@@ -22,7 +22,7 @@ const ProductManager = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("/api/products/all");
-        console.log(response.data);
+        // console.log(response.data);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);

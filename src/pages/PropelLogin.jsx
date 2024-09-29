@@ -11,10 +11,10 @@ const LandingPage = withAuthInfo((props) => {
       <div className="w-1/2 flex justify-center items-center">
         <div className="transition-opacity duration-1000 ease-out opacity-100 hover:opacity-0 w-4/5 text-5xl font-bold text-midnight">
         <span>welcome to your fridge, {props.user.username}</span>
-        <div class='pt-6 flex space-x-2 bg-transparent dark:invert'>
-  	      <div class='h-2 w-2 bg-midnight rounded-xs animate-bounce [animation-delay:-0.3s]'></div>
-	        <div class='h-2 w-2 bg-midnight rounded-xs animate-bounce [animation-delay:-0.15s]'></div>
-	        <div class='h-2 w-2 bg-midnight rounded-xs animate-bounce'></div>
+        <div class='pt-6 flex space-x-3 bg-transparent dark:invert'>
+  	      <div class='h-2 w-2 bg-midnight rounded-xs animate-bounceHigher [animation-delay:-0.3s]'></div>
+	        <div class='h-2 w-2 bg-midnight rounded-xs animate-bounceHigher [animation-delay:-0.15s]'></div>
+	        <div class='h-2 w-2 bg-midnight rounded-xs animate-bounceHigher'></div>
         </div>
           {/* <Tabs defaultValue="add" className="w-full">
               <TabsList className="grid w-full grid-cols-2 gap-4">

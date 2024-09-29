@@ -4,6 +4,17 @@ export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
   	extend: {
+
+		keyframes: {
+			bounceHigher: {
+			  '0%, 100%': { transform: 'translateY(-80%)' }, // Adjust the height here (e.g., -50%)
+			  '50%': { transform: 'translateY(0)' },
+			},
+		  },
+		  animation: {
+			bounceHigher: 'bounceHigher 1s infinite', // Adjust timing if needed
+		  },
+
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
